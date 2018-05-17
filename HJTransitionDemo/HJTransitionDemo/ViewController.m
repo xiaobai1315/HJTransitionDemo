@@ -10,7 +10,7 @@
 #import "ViewController2.h"
 #import "UIViewController+HJTransition.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end
@@ -21,6 +21,8 @@
     NSArray *_systemArray1;
     NSArray *_systemArray2;
     NSArray *_customArray;
+    BOOL _isPresented;
+    ViewController2 *vc2;
 }
 
 - (void)viewDidLoad {
@@ -89,9 +91,87 @@
 //        type = indexPath.row + _systemArray1.count + _systemArray2.count;
 //    }
     
-    ViewController2 *vc2 = [ViewController2 new];
+    vc2 = [ViewController2 new];
 //    vc2.transitionType = type;
+    vc2.modalPresentationStyle = UIModalPresentationCustom;
+    vc2.transitioningDelegate = self;
     [self presentViewController:vc2 animated:YES completion:nil];
+}
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented presentingController:(UIViewController *)presenting sourceController:(UIViewController *)source
+{
+    _isPresented = YES;
+    return self;
+}
+
+- (nullable id <UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed
+{
+    _isPresented = NO;
+    return self;
+}
+
+- (NSTimeInterval)transitionDuration:(nullable id <UIViewControllerContextTransitioning>)transitionContext
+{
+    return 0.5f;
+}
+
+- (void)animateTransition:(id <UIViewControllerContextTransitioning>)transitionContext
+{
+    if (_isPresented) {
+        [self presentTransition:transitionContext];
+    }else {
+        [self dismissTransition:transitionContext];
+    }
+}
+
+- (void)presentTransition:(id <UIViewControllerContextTransitioning>)transitionContext
+{
+//    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    toVC.view.hidden = YES;
+
+//    [transitionContext.containerView addSubview:fromVC.view];
+    [transitionContext.containerView addSubview:toVC.view];
+
+    [UIView animateWithDuration:0.5 animations:^{
+
+        toVC.view.hidden = NO;
+    } completion:^(BOOL finished) {
+
+    }];
+
+//    [UIView animateWithDuration:0.5 delay:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
+//
+//        toVC.view.hidden = NO;
+//    } completion:^(BOOL finished) {
+//        [transitionContext completeTransition:YES];
+//    }];
+}
+
+- (void)dismissTransition:(id <UIViewControllerContextTransitioning>)transitionContext
+{
+    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+//    fromVC.view.alpha = 1;
+//    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+//    toVC.view.hidden = YES;
+    
+    [transitionContext.containerView addSubview:fromVC.view];
+//    [transitionContext.containerView addSubview:toVC.view];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+
+        fromVC.view.hidden = YES;
+    } completion:^(BOOL finished) {
+    }];
+    
+//    [UIView animateWithDuration:0.5 delay:0.5 options:UIViewAnimationOptionCurveLinear animations:^{
+//
+//        toVC.view.hidden = NO;
+//    } completion:^(BOOL finished) {
+//
+//        [transitionContext completeTransition:YES];
+//    }];
+
 }
 
 @end

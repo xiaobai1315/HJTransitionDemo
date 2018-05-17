@@ -17,6 +17,7 @@
 		4A232F7F20AAE12C00FED34A /* HJTransitionDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A232F7E20AAE12C00FED34A /* HJTransitionDemoUITests.m */; };
 		4A232F8E20AAE9B500FED34A /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A232F8D20AAE9B500FED34A /* ViewController2.m */; };
 		4A232F9120AC2D7900FED34A /* UIViewController+HJTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A232F9020AC2D7900FED34A /* UIViewController+HJTransition.m */; };
+		4A2330CC20AD7CF400FED34A /* 1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4A2330CB20AD7CF400FED34A /* 1.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		4A232F8D20AAE9B500FED34A /* ViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 		4A232F8F20AC2D7900FED34A /* UIViewController+HJTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HJTransition.h"; sourceTree = "<group>"; };
 		4A232F9020AC2D7900FED34A /* UIViewController+HJTransition.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HJTransition.m"; sourceTree = "<group>"; };
+		4A2330CB20AD7CF400FED34A /* 1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				4A232F9020AC2D7900FED34A /* UIViewController+HJTransition.m */,
 				4A232F8C20AAE9B500FED34A /* ViewController2.h */,
 				4A232F8D20AAE9B500FED34A /* ViewController2.m */,
+				4A2330CB20AD7CF400FED34A /* 1.jpeg */,
 				4A232F6020AAE12C00FED34A /* Main.storyboard */,
 				4A232F6320AAE12C00FED34A /* Assets.xcassets */,
 				4A232F6520AAE12C00FED34A /* LaunchScreen.storyboard */,
@@ -251,6 +254,7 @@
 				4A232F6720AAE12C00FED34A /* LaunchScreen.storyboard in Resources */,
 				4A232F6420AAE12C00FED34A /* Assets.xcassets in Resources */,
 				4A232F6220AAE12C00FED34A /* Main.storyboard in Resources */,
+				4A2330CC20AD7CF400FED34A /* 1.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

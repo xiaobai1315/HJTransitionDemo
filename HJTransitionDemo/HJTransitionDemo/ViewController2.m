@@ -17,7 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    self.view.backgroundColor = [UIColor grayColor];
+    UIImageView *imageview = [UIImageView new];
+    imageview.frame = self.view.bounds;
+    imageview.image = [UIImage imageNamed:@"1.jpeg"];
+    imageview.contentMode = UIViewContentModeScaleAspectFit;
+    imageview.userInteractionEnabled = YES;
+    [self.view addSubview:imageview];    
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
