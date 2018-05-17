@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, HJTransitionType){
-    HJTransitionTypeCoverVertical,
+    HJTransitionTypeCoverVertical = 0,
     HJTransitionTypeFlipHorizontal,
     HJTransitionTypeCrossDissolve,
     HJTransitionTypePartialCurl,
@@ -23,8 +23,17 @@ typedef NS_ENUM(NSInteger, HJTransitionType){
     HJTransitionTypeSuckEffect,
     HJTransitionTypeCube,
     HJTransitionTypeOglFlip,
+    HJTransitionTypePopup,     //自定义效果
+};
+
+typedef NS_ENUM(NSInteger, HJTransitionSubType){
+    HJTransitionSubTypeFromLeft,
+    HJTransitionSubTypeFromRight,
+    HJTransitionSubTypeFromTop,
+    HJTransitionSubTypeFromBottom,
 };
 
 @interface UIViewController (HJTransition)
 @property(nonatomic, assign) HJTransitionType transitionType;
+@property(nonatomic, assign) HJTransitionSubType transitionSubType;
 @end

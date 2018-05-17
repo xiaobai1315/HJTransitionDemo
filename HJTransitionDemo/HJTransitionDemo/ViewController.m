@@ -76,105 +76,22 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HJTransitionType type = 0;
-    
-    if (indexPath.section == 0) {
-
-        type = indexPath.row;
-    }else if (indexPath.section == 1) {
-
-        type = indexPath.row + _systemArray1.count;
-    }else {
-
-        type = indexPath.row + _systemArray1.count + _systemArray2.count;
-    }
-    
-    ViewController2 *vc2 = [ViewController2 new];
-    vc2.transitionType = type;
-    [self presentViewController:vc2 animated:YES completion:nil];
-}
-
-- (void) HJTransition:(HJTransitionType)type
-{
-    NSString *transitionType = @"";
-    
-    switch (type) {
-        case HJTransitionTypeCoverVertical:
-        case HJTransitionTypeFlipHorizontal:
-        case HJTransitionTypeCrossDissolve:
-        case HJTransitionTypePartialCurl:
-            [self system1Transition:type];
-            break;
-        
-        case HJTransitionTypeMoveIn:
-            transitionType = kCATransitionMoveIn;
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypeFade:
-            transitionType = kCATransitionFade;
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypePush:
-            transitionType = kCATransitionPush;
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypeReveal:
-            transitionType = kCATransitionReveal;
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypepageCurl:
-            transitionType = @"pageCurl";
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypepageUnCurl:
-            transitionType = @"pageUnCurl";
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypeRippleEffect:
-            transitionType = @"rippleEffect";
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypeSuckEffect:
-            transitionType = @"suckEffect";
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypeCube:
-            transitionType = @"cube";
-            [self system2Transition:transitionType];
-            break;
-        case HJTransitionTypeOglFlip:
-            transitionType = @"oglFlip";
-            [self system2Transition:transitionType];
-            break;
-            
-        default:
-            break;
-    }
-}
-
--(void) system1Transition:(HJTransitionType)type {
+//    HJTransitionType type = 0;
+//
+//    if (indexPath.section == 0) {
+//
+//        type = indexPath.row;
+//    }else if (indexPath.section == 1) {
+//
+//        type = indexPath.row + _systemArray1.count;
+//    }else {
+//
+//        type = indexPath.row + _systemArray1.count + _systemArray2.count;
+//    }
     
     ViewController2 *vc2 = [ViewController2 new];
-    vc2.modalTransitionStyle = (UIModalTransitionStyle)type;
-    
+//    vc2.transitionType = type;
     [self presentViewController:vc2 animated:YES completion:nil];
-}
-
--(void) system2Transition:(NSString *)type{
-    
-    CATransition *animation = [CATransition animation];
-    animation.duration = 0.5;
-    animation.type = type;
-//    animation.subtype =
-    [self.view.window.layer addAnimation:animation forKey:nil];
-    
-    ViewController2 *vc2 = [ViewController2 new];
-    [self presentViewController:vc2 animated:YES completion:nil];
-}
-
--(void)mapTransitionType:(HJTransitionType)type
-{
-    
 }
 
 @end
