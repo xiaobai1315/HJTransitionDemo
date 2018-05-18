@@ -23,7 +23,9 @@ typedef NS_ENUM(NSInteger, HJTransitionType){
     HJTransitionTypeSuckEffect,
     HJTransitionTypeCube,
     HJTransitionTypeOglFlip,
-    HJTransitionTypePopup,     //自定义效果
+    //自定义效果
+    HJTransitionTypeFadeOut,    //淡出效果，修改View的alpha值
+    HJTransitionTypePopup,      //弹出效果，被选中的View变大至全屏，dismiss时变小恢复到之前
 };
 
 typedef NS_ENUM(NSInteger, HJTransitionSubType){
@@ -33,7 +35,7 @@ typedef NS_ENUM(NSInteger, HJTransitionSubType){
     HJTransitionSubTypeFromBottom,
 };
 
-@interface UIViewController (HJTransition)
-@property(nonatomic, assign) HJTransitionType transitionType;
-@property(nonatomic, assign) HJTransitionSubType transitionSubType;
+@interface UIViewController (HJTransition)<UIViewControllerTransitioningDelegate, UIViewControllerAnimatedTransitioning>
+@property(nonatomic, assign) HJTransitionType transitionType;       //转场动画类型
+@property(nonatomic, assign) HJTransitionSubType transitionSubType; //转场动画子类型
 @end

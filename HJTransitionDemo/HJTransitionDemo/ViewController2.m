@@ -16,7 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+    self.view.backgroundColor = [UIColor whiteColor];
     UIImageView *imageview = [UIImageView new];
     imageview.frame = self.view.bounds;
     imageview.image = [UIImage imageNamed:@"1.jpeg"];
